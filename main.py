@@ -1,8 +1,4 @@
-from pydub import AudioSegment
 import os
-import music_tag
-import subprocess
-
 import subprocess
 
 def check_requirements(requirements):
@@ -35,6 +31,10 @@ with open(requirements_file, 'r') as file:
 
 
 check_requirements(requirements)
+
+
+from pydub import AudioSegment
+import music_tag
 
 
 def flac_to_mp3(input_file, output_file, bitrate='320k'):
