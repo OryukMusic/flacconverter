@@ -1,36 +1,36 @@
 import os
 import subprocess
 
-def check_requirements(requirements):
-    installed_libraries = subprocess.check_output(['pip', 'list']).decode('utf-8').split('\n')
-    installed_libraries = [lib.split()[0] for lib in installed_libraries[2:-1]]
+# def check_requirements(requirements):
+#     installed_libraries = subprocess.check_output(['pip', 'list']).decode('utf-8').split('\n')
+#     installed_libraries = [lib.split()[0] for lib in installed_libraries[2:-1]]
     
-    missing_libraries = [req for req in requirements if req not in installed_libraries]
+#     missing_libraries = [req for req in requirements if req not in installed_libraries]
     
-    if not missing_libraries:
-        print("All requirements are already installed.")
-    else:
-        print("The following requirements are missing and will be installed:", missing_libraries)
-        install_requirements('requirements.txt', missing_libraries)
+#     if not missing_libraries:
+#         print("All requirements are already installed.")
+#     else:
+#         print("The following requirements are missing and will be installed:", missing_libraries)
+#         install_requirements('requirements.txt', missing_libraries)
 
-def install_requirements(requirements_file, requirements=None):
-    try:
-        if not requirements:
-            with open(requirements_file, 'r') as file:
-                requirements = file.read().splitlines()
+# def install_requirements(requirements_file, requirements=None):
+#     try:
+#         if not requirements:
+#             with open(requirements_file, 'r') as file:
+#                 requirements = file.read().splitlines()
         
-        subprocess.run(["pip", "install"] + requirements)
-        print("All requirements installed successfully!")
-    except FileNotFoundError:
-        print(f"Error: {requirements_file} not found.")
+#         subprocess.run(["pip", "install"] + requirements)
+#         print("All requirements installed successfully!")
+#     except FileNotFoundError:
+#         print(f"Error: {requirements_file} not found.")
 
-# Call the function with the path to your requirements.txt file
-requirements_file = 'requirements.txt'
-with open(requirements_file, 'r') as file:
-    requirements = file.read().splitlines()
+# # Call the function with the path to your requirements.txt file
+# requirements_file = 'requirements.txt'
+# with open(requirements_file, 'r') as file:
+#     requirements = file.read().splitlines()
 
 
-check_requirements(requirements)
+# check_requirements(requirements)
 
 
 from pydub import AudioSegment
